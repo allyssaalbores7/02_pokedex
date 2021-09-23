@@ -1,12 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
-          Pokedex
-        </h1>
+        <h1>Pokedex</h1>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,7 +15,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

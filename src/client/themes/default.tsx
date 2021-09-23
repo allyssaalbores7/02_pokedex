@@ -6,6 +6,6 @@ const colors = {
 
 const defaultTheme = {
   colors,
-};
+}
 
-export default defaultTheme;
+export default defaultTheme
