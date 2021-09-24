@@ -1,0 +1,11 @@
+{
+  "API_URL": "http://localhost:3001",
+  "FIREBASE_CONFIG": {
+    "apiKey": "AIzaSyCzzNWdsYOCYdM3cPxb3Z0d2eqKDSlA9B0",
+    "authDomain": "pokedex-d1d0f.firebaseapp.com",
+    "projectId": "pokedex-d1d0f",
+    "storageBucket": "pokedex-d1d0f.appspot.com",
+    "messagingSenderId": "267912743319",
+    "appId": "1:267912743319:web:4720c831315a9fc671dcd2"
+  }
+}
