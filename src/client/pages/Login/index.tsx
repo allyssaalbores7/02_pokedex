@@ -1,11 +1,17 @@
 import React from 'react'
-import { useRef } from 'react'
+import { useState, useRef } from 'react'
 import { auth } from '../../services/FirebaseService'
 import { Button, Input } from '../../components'
-import { StyledForm, FormItemContainer, ButtonContainer } from './styles'
+import {
+  StyledText,
+  StyledForm,
+  FormItemContainer,
+  ButtonContainer,
+} from './styles'
 import logoSrc from '../../assets/images/pokemon-logo.svg'
 
 export default function LoginPage() {
+  const [error, setError] = useState<string | null>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
@@ -17,8 +23,9 @@ export default function LoginPage() {
         emailRef.current!.value,
         passwordRef.current!.value
       )
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
+      setError(error.message)
     }
   }
 
@@ -28,15 +35,16 @@ export default function LoginPage() {
         emailRef.current!.value,
         passwordRef.current!.value
       )
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
+      setError(error.message)
     }
   }
 
   return (
     <FormItemContainer>
       <StyledForm>
-        <img src={logoSrc} />
+        <img src={logoSrc} alt="Pokemon logo" width="100%" />
         <Input
           onChange={onChangeInputHandler}
           label="Email"
@@ -56,6 +64,7 @@ export default function LoginPage() {
           <Button label="LOG IN" type="primary" onClick={signIn} />
           <Button label="SIGN UP" type="secondary" onClick={createAccount} />
         </ButtonContainer>
+        <StyledText text={error} type="body2-regular" />
       </StyledForm>
     </FormItemContainer>
   )

@@ -17,7 +17,7 @@ const colors = {
   textPrimary: '#2d3748',
   textSecondary: '#586069',
 
-  error: '#eb5757',
+  error: '#e60013',
   white: '#ffffff',
 }
 

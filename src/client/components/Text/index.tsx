@@ -4,7 +4,7 @@ import { StyledText } from './styles'
 
 type Props = {
   className?: string
-  text?: string
+  text: string | null
   type?: string
 }
 

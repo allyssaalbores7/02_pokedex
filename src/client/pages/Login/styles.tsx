@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import Text from '../../components/Text'
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -24,4 +26,10 @@ export const ButtonContainer = styled.div`
   flex-direction: row;
   gap: 2rem;
   margin-top: 2rem;
+`
+
+export const StyledText = styled(Text)`
+  color: ${(props) => props.theme.colors.error};
+  margin-top: 5rem;
+  line-height: 2.5;
 `
