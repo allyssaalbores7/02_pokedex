@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { auth } from '../../services/FirebaseService'
 import { Button, Input } from '../../components'
 import { StyledForm, FormItemContainer, ButtonContainer } from './styles'
+import logoSrc from '../../assets/images/pokemon-logo.svg'
 
 export default function LoginPage() {
   const emailRef = useRef<HTMLInputElement>(null)
@@ -35,6 +36,7 @@ export default function LoginPage() {
   return (
     <FormItemContainer>
       <StyledForm>
+        <img src={logoSrc} />
         <Input
           onChange={onChangeInputHandler}
           label="Email"
