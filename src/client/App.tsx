@@ -1,22 +1,20 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { AuthContext } from './contexts/AuthContext'
 import { ThemeProvider } from 'styled-components'
 import { GridThemeProvider } from 'styled-bootstrap-grid'
-import GlobalStyle from './App.styles'
-
-import defaultTheme from '../client/themes/default'
-import useAuth from '../client/hooks/useAuth'
-import { auth } from './services/FirebaseService'
-import { Button } from './components'
 import { GRID_THEME } from '../commons/constants/configs'
 
+import useAuth from '../client/hooks/useAuth'
+import GlobalStyle from './App.styles'
+import defaultTheme from '../client/themes/default'
+import routes from '../commons/constants/routes'
+import DashboardPage from '../client/pages/Dashboard'
 import LoginPage from './../client/pages/Login'
+import FavoritesPage from './../client/pages/Favorites'
+import ProfilePage from './../client/pages/Profile'
 
 export default function App() {
   const { user } = useAuth()
-
-  const signOut = async () => {
-    await auth.signOut()
-  }
 
   if (!user) {
     return (
@@ -32,10 +30,18 @@ export default function App() {
       <ThemeProvider theme={defaultTheme}>
         <GridThemeProvider gridTheme={GRID_THEME}>
           <>
-            <header className="App-header">
-              <h2 className="mt-4 text-center">Welcome {user.email}</h2>
-              <Button label="Sign out" type="primary" onClick={signOut} />
-            </header>
+            <GlobalStyle />
+            <Router>
+              <Switch>
+                <Route exact path={routes.ROOT} component={DashboardPage} />
+                <Route
+                  exact
+                  path={routes.FAVORITES}
+                  component={FavoritesPage}
+                />
+                <Route exact path={routes.PROFILE} component={ProfilePage} />
+              </Switch>
+            </Router>
           </>
         </GridThemeProvider>
       </ThemeProvider>

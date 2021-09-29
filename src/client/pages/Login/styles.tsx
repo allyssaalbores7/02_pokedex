@@ -30,6 +30,6 @@ export const ButtonContainer = styled.div`
 
 export const StyledText = styled(Text)`
   color: ${(props) => props.theme.colors.error};
-  margin-top: 5rem;
+  margin-top: 4rem;
   line-height: 2.5;
 `
