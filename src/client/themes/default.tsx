@@ -2,43 +2,28 @@
 import { rem, rgba } from 'polished'
 
 const colors = {
-  primary1: '#067EED',
-  primary1_02: rgba('#28a5ff', 0.2),
-  primaryDark: '#0E3854',
+  // buttons
+  buttonSolid: '#af4417',
+  buttonHover1: rgba('#af4417', 0.9),
+  buttonHover2: rgba('#af4417', 0.2),
+  buttonBorder: '#fb7823',
 
-  secondary1: rgba('#85c3ff', 0.25),
+  // backgrounds
+  bgColor1: '#f7fafc',
+  bgColor2: '#edf2f6',
+  bgBorder: '#e1e4e8',
 
-  // dark
-  darkLight20: '#5B5A5D',
+  // texts
+  textPrimary: '#2d3748',
+  textSecondary: '#586069',
 
-  // gray
-  gray1: '#333333',
-  gray2: '#4F4F4F',
-  gray3: '#828282',
-  gray4: '#BDBDBD',
-  gray5: '#E0E0E0',
-  gray6: '#F2F2F2',
-  gray7: '#EEEEEE',
-
-  // green
-  green1: '#219653',
-  green2: '#27AE60',
-
-  // red
-  red1: '#EB5757',
-
-  // extras
-  bgColor: '#FAFCFF',
-  black: '#000000',
-  error: '#EB5757',
-  white: '#FFFFFF',
-  mastheadBorderColor: '#D6D6D7',
-
-  discordPrimary: '#7289da',
+  error: '#eb5757',
+  white: '#ffffff',
 }
 
 const fontFamilies = {
-  regular: "'TT Norms', sans-serif",
+  regular: "'Pokedex', sans-serif",
+  sourceSans: "'Source Sans Pro', sans-serif",
 }
 
 const fontWeights = {
@@ -66,12 +51,19 @@ const shadows = {
   elevation3: '0px 8px 16px rgba(147, 156, 174, 0.24)',
 }
 
+const gaps = {
+  gap1: 'rem(12px)',
+  gap2: 'rem(16px)',
+  gap3: 'rem(24px)',
+}
+
 const defaultTheme = {
   colors,
   fontFamilies,
   fontSizes,
   fontWeights,
   shadows,
+  gaps,
 }
 
 export default defaultTheme

@@ -22,21 +22,23 @@ export default createGlobalStyle<ThemeProps>`
   }
 
   html {
-    line-height: 1.15;
     box-sizing: border-box;
     font-family: ${(props) => props.theme.fontFamilies.regular};
   }
 
   body {
     margin: 0;
-    color: ${(props) => props.theme.colors.gray1};
-    background-color: ${(props) => props.theme.colors.bgColor};
+    background-color: ${(props) => props.theme.colors.bgColor1};
     font-family: ${(props) => props.theme.fontFamilies.regular};
     font-size: ${(props) => props.theme.fontSizes.body1};
   }
 
   main {
     display: block;
+  }
+
+  #root {
+    height: 100vh;
   }
 
   h1 {
@@ -70,12 +72,12 @@ export default createGlobalStyle<ThemeProps>`
 
   p {
     margin-top: 0;
-    color: ${(props) => props.theme.colors.gray2};
+    color: ${(props) => props.theme.colors.textPrimary};
     line-height: 1.2;
   }
 
   a {
-    color: ${(props) => props.theme.colors.primary1};
+    color: ${(props) => props.theme.colors.textPrimary};
     background-color: transparent;
     line-height: 24px;
     text-decoration: none;
@@ -151,7 +153,6 @@ export default createGlobalStyle<ThemeProps>`
     margin: 0;
     font-family: inherit;
     font-size: 100%;
-    line-height: 1.15;
     transition: all 0.1s ease-in-out;
   }
 

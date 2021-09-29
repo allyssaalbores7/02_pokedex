@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { StyledInput, StyledTextarea } from './styles'
+import { Container, StyledInput, StyledTextarea, TitleText } from './styles'
 
 type ChangeEvent =
   | React.ChangeEvent<HTMLInputElement>
@@ -13,10 +13,13 @@ type KeyboardEvent =
 type Props = {
   className?: string
   name?: string
+  label?: string
   placeholder?: string
+  autoComplete?: string
   rows?: number
-  type?: 'text' | 'textarea' | 'number'
+  type?: 'text' | 'textarea' | 'number' | 'password'
   value?: string
+  inputStyle?: 'outline' | 'solid'
   onChange: (value: string, name?: string) => void
   onKeyDown?: (e: KeyboardEvent) => void
 }
@@ -25,10 +28,13 @@ function Input(props: Props, ref: any) {
   const {
     className,
     name,
+    label,
     placeholder,
     rows,
     type = 'text',
     value,
+    inputStyle = 'outline',
+    autoComplete,
     onChange,
     onKeyDown,
   } = props
@@ -39,32 +45,40 @@ function Input(props: Props, ref: any) {
 
   if (type === 'textarea') {
     return (
-      <StyledTextarea
-        className={className}
-        data-testid="Textarea"
-        name={name}
-        placeholder={placeholder}
-        rows={rows}
-        value={value}
-        ref={ref as React.RefObject<HTMLTextAreaElement>}
-        onChange={handleChange as any}
-        onKeyDown={onKeyDown}
-      />
+      <Container>
+        <TitleText text={label} type="body3-bold" />
+        <StyledTextarea
+          inputStyle={inputStyle}
+          className={className}
+          name={name}
+          placeholder={placeholder}
+          rows={rows}
+          value={value}
+          autoComplete={autoComplete}
+          ref={ref as React.RefObject<HTMLTextAreaElement>}
+          onChange={handleChange as any}
+          onKeyDown={onKeyDown}
+        />
+      </Container>
     )
   }
 
   return (
-    <StyledInput
-      className={className}
-      data-testid="Input"
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      type={type}
-      ref={ref as React.RefObject<HTMLInputElement>}
-      onChange={handleChange}
-      onKeyDown={onKeyDown}
-    />
+    <Container>
+      <TitleText text={label} type="body3-bold" />
+      <StyledInput
+        inputStyle={inputStyle}
+        className={className}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        type={type}
+        autoComplete={autoComplete}
+        ref={ref as React.RefObject<HTMLInputElement>}
+        onChange={handleChange}
+        onKeyDown={onKeyDown}
+      />
+    </Container>
   )
 }
 

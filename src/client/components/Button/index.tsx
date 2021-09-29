@@ -29,7 +29,6 @@ export default function Button(props: Props) {
     <StyledButton
       buttonType={type}
       className={className}
-      data-testid="Button"
       disabled={isDisabled}
       type="button"
       onClick={handleClick}
